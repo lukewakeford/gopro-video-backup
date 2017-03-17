@@ -3,13 +3,13 @@ Basic ruby script for backing up video from one directory to another
 
 This ruby script uses `fileutils` to check which video files need to be copied to the backup directory, it is also currently set to limit the source directory size to 53gb, if the backup directory does not have space for the new files, old files are deleted until there is space.
 
-#Warning
+# Warning
 This is a destructive script, and will delete old files when needed without prompt!
 
-# usage
+# Usage
 `ruby brap.rb /Volumes/from/directory/ /Volumes/to/directory/`
 
-#output
+# Output
 ```
 ## Backing up videos from /Volumes/from/directory/ to /Volumes/to/directory/
 ## Figuring out which files need copying
