@@ -10,6 +10,7 @@ This is a destructive script, and will delete old files when needed without prom
 `ruby brap.rb /Volumes/from/directory/ /Volumes/to/directory/`
 
 #output
+```
     ## Backing up videos from /Volumes/from/directory/ to /Volumes/to/directory/
     ## Figuring out which files need copying
     GOPR5478.MP4 needs copying
@@ -39,3 +40,4 @@ This is a destructive script, and will delete old files when needed without prom
     Copying GOPR5480.MP4
     Copying GOPR5481.MP4
     ## DONE
+```
