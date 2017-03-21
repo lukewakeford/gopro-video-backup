@@ -3,8 +3,11 @@ require 'fileutils'
 from = ARGV[0]
 to = ARGV[1]
 
-# Max source directory size set to 53gb
-maxSourceSize = 53687091200
+# Set desired destination size in gigabytes
+desiredDestinationSize = 50
+
+# Calculates bytes from gigabytes
+destinationMaxCapactiy = desiredDestinationSize * 1073741824
 
 def directory_size(path)
   path << '/' unless path.end_with?('/')
@@ -40,13 +43,13 @@ if from && to
 	puts "## Seeing if there is enough space in the source directory"
 		newSizeAfterCopy = toDirectorySize + totalSizeOfFilesToCopy
 		dif = 0
-		if newSizeAfterCopy < maxSourceSize
+		if newSizeAfterCopy < destinationMaxCapactiy
 			puts "There is enough space for the new files"
 		else
 			puts "We need to make space for new files"
-			dif = newSizeAfterCopy - maxSourceSize
+			dif = newSizeAfterCopy - destinationMaxCapactiy
 			puts "## Deleting oldest files until there is enough space"
-			targetSize = maxSourceSize - dif
+			targetSize = destinationMaxCapactiy - dif
 			while toDirectorySize > targetSize
 				oldestFile = Dir.glob("#{to}*").min_by {|f| File.birthtime(f)}
 				toDirectorySize -= File.size(oldestFile) if File.file?(oldestFile) && File.size?(oldestFile)
