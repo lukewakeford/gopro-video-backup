@@ -1,7 +1,10 @@
 # gopro-video-backup
 Basic ruby script for backing up video from one directory to another
 
-This ruby script uses `fileutils` to check which video files need to be copied to the backup directory, it is also currently set to limit the source directory size to 53gb, if the backup directory does not have space for the new files, old files are deleted until there is space.
+This ruby script uses `fileutils` to check which video files need to be copied to the backup directory, it is also currently set to limit the destination directory size to 50gb, if the backup directory does not have space for the new files, old files are deleted until there is space.
+
+You can set your desired destination size inside brap.rb
+`desiredDestinationSize = 50`
 
 # Warning
 This is a destructive script, and will delete old files when needed without prompt!
